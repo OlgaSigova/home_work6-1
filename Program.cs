@@ -5,25 +5,26 @@
 
 
 Console.Clear();
-Console.WriteLine("Введите кол-во элементов массива N ");
-Console.Write(" N = ");
-int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Сколько чисел вы хотите ввести ");
 
-int[] array = new int[n];
-int count =0;
-int[] GetArray( int [] array)
+int numb = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[numb];
+
+int PositiveNumbers(int count)
 {
-    for (int i = 0; i < n; i++)
+    int countOfPositive = 0;
+    for (int i = 0; i < count; i++)
     {
-        array[i] = new Random().Next(-100, 100);
+        array[i] = Convert.ToInt32(Console.ReadLine());
         if (array[i] > 0)
         {
-           count++;
-        }       
+            countOfPositive++;
+        }
+        Console.WriteLine(string.Join (", ", array));
     }
-    return array;
+    return countOfPositive;
 }
-GetArray(array);
+int posCount = PositiveNumbers(numb);
 
-Console.WriteLine(String.Join(", ", array));
-Console.WriteLine("Колличество чисел больше 0 равно: " +count);
+
+Console.WriteLine("Колличество чисел больше 0 равно: " + posCount);
